@@ -13,4 +13,4 @@ The `SimpleStyleguideController` class also includes a basic form (`SimpleStyleg
 The styleguide template can be overriden by including a `SimpleStyleguideController.ss` file in your themes 
 `template/Layout/` directory.
 
-The `SimpleStyleguideController` class can be overriden using SilverStripes [extensions](https://docs.silverstripe.org/en/3.1/developer_guides/extending/extensions/) to either add new output functions, or modify the provided functions.
+The `SimpleStyleguideController` class can be overriden using SilverStripes [extensions](https://docs.silverstripe.org/en/3.1/developer_guides/extending/extensions/) to either add new output functions, or modify the provided functions, by using the `updateStyleguideData` extension hook.
