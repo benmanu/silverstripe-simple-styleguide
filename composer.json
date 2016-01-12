@@ -1,5 +1,5 @@
 {
-	"name": "silverstripe/simple-styleguide",
+	"name": "benmanu/silverstripe-simple-styleguide",
 	"description": "Provides a kitchen sink template useful for theme development.",
 	"type": "silverstripe-module",
 	"homepage": "https://github.com/benmanu/silverstripe-simple-styleguide",
@@ -17,5 +17,8 @@
 	"require": {
 		"silverstripe/framework": "~3.1",
 		"silverstripe/cms": "~3.1"
+	},
+	"extra": {
+		"installer-name": "simple-styleguide"
 	}
 }
