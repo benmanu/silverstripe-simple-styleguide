@@ -14,6 +14,11 @@ class SimpleStyleguideController extends Controller {
 			return Security::permissionFailure();
 		}
 
+		// If the subsite module is installed then set the theme based on the current subsite
+		if (class_exists('Subsite') && Subsite::currentSubsite()) {
+			Config::inst()->update('SSViewer', 'theme', Subsite::currentSubsite()->Theme);
+		}
+
 		$page = Page::get()->first();
 		$controller = ModelAsController::controller_for($page);
 		$controller->init();
