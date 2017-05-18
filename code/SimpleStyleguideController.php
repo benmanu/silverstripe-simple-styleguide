@@ -52,15 +52,36 @@ class SimpleStyleguideController extends Controller {
 	public function TestForm() {
 		$fields = new FieldList(
 			new TextField('SimpleText', 'Simple Text Field'),
+			$goodField = TextField::create('SimpleTextGood', 'Simple Text Field (good)'),
+			$warningField = TextField::create('SimpleTextWarning', 'Simple Text Field (warning)'),
+			$badField = TextField::create('SimpleTextBad', 'Simple Text Field (bad)'),
 			new NumericField('Number', 'Number Field'),
 			new EmailField('Email', "Email Field"),
 			new DropdownField('Dropdown', 'Normal dropdown', array(
 				'1' => 'One option',
 				'2' => 'Two option'
 			)),
+			new CheckboxField('Checkbox', 'Checkbox'),
+			new CheckboxSetField('CheckboxSet', 'Checkbox set', array(
+				'1' => 'One option',
+				'2' => 'Two option',
+				'3' => 'Three option'
+            )),
+			new OptionsetField('Option', 'Option', array(
+				'1' => 'One option'
+            )),
+			new OptionsetField('OptionSet', 'Option set', array(
+				'1' => 'One option',
+				'2' => 'Two option',
+				'3' => 'Three option'
+            )),
 			TextField::create('Text', 'Text')
 				->setDescription('This is a description')
 		);
+
+        $goodField->setError('This is a good message', 'good');
+        $warningField->setError('This is a warning message', 'warning');
+        $badField->setError('This is an error message', 'bad');
 
 		$actions = new FieldList(
 			new FormAction('doForm', 'Submit')
