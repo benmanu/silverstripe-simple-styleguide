@@ -18,6 +18,10 @@
 		"silverstripe/framework": "~3.1",
 		"silverstripe/cms": "~3.1"
 	},
+	"require-dev": {
+		"phpunit/PHPUnit": "~3.7@stable",
+		"squizlabs/php_codesniffer": "^2.8"
+	},
 	"extra": {
 		"installer-name": "simple-styleguide"
 	}
