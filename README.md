@@ -24,3 +24,24 @@ The styleguide template can be overriden by including a `SimpleStyleguideControl
 `template/Layout/` directory.
 
 The `SimpleStyleguideController` class can be overriden using SilverStripes [extensions](https://docs.silverstripe.org/en/3.1/developer_guides/extending/extensions/) to either add new output functions, or modify the provided functions, by using the `updateStyleguideData` extension hook.
+
+### Styleguide Data
+
+An extension hook is available to override/edit the rendered template data through `updateStyleguideData`.
+
+### Color Swatches
+
+A simple color swatch template is available and can be overriden through the `color_swatches` config value.
+
+```yml
+SimpleStyleguideController:
+  color_swatches:
+    - Name: "Black"
+      Description: "This color is rather dark"
+      CSSColor: "#000000"
+      TextColor: "#ffffff"
+    - Name: "Grey"
+      Description: "This color is grey"
+      CSSColor: "#666666"
+      TextColor: "#000000"
+```

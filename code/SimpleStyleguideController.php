@@ -1,8 +1,43 @@
 <?php
-
+/**
+ * @package simple-styleguide
+ */
 class SimpleStyleguideController extends Controller
 {
+    /**
+     * @config
+     * @var array
+     */
+    private static $color_swatches = [
+        [
+            'Name' => 'Black',
+            'Description' => '$color-black',
+            'CSSColor' => '#000000',
+            'TextColor' => '#ffffff',
+        ],
+        [
+            'Name' => 'Black',
+            'Description' => '$color-black',
+            'CSSColor' => '#000000',
+            'TextColor' => '#666666',
+        ],
+        [
+            'Name' => 'Grey',
+            'Description' => '$color-grey',
+            'CSSColor' => '#666666',
+            'TextColor' => '#000000',
+        ],
+        [
+            'Name' => 'Grey',
+            'Description' => '$color-grey',
+            'CSSColor' => '#666666',
+            'TextColor' => '#ffffff',
+        ],
+    ];
 
+    /**
+     * @var array
+     */
     private static $allowed_actions = [
         'index',
     ];
@@ -25,6 +60,9 @@ class SimpleStyleguideController extends Controller
         $controller = ModelAsController::controller_for($page);
         $controller->init();
 
+        // requirements
+        Requirements::css('simple-styleguide/css/styleguide.css');
+
         return $controller
             ->customise($this->getStyleGuideData())
             ->renderWith(['SimpleStyleguideController', 'Page']);
@@ -38,8 +76,13 @@ class SimpleStyleguideController extends Controller
     {
         $data = new ArrayData([
             'Title' => 'Styleguide',
+            'Message' => DBField::create_field(
+                'HTMLText',
+                '<p>This controller is only accessible to developers and admin users.</p>'
+            ),
             'TestForm' => $this->getTestForm(),
             'Content' => $this->getContent(),
+            'ColorSwatches' => $this->getColorSwatches(),
         ]);
 
         // extensions for adding/overriding template data.
@@ -121,5 +164,20 @@ class SimpleStyleguideController extends Controller
         $content .= '<p>This is an external <a href="http://google.com">link to google</a> inside content.</p>';
 
         return DBField::create_field('HTMLText', $content);
+    }
+
+    /**
+     * @return ArrayList
+     */
+    public function getColorSwatches()
+    {
+        $list = ArrayList::create();
+        $colors = $this->config()->color_swatches;
+
+        foreach ($colors as $color) {
+            $list->push(ArrayData::create($color));
+        }
+
+        return $list;
     }
 }
