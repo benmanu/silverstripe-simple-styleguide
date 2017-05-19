@@ -6,6 +6,16 @@
 
 .styleguide__content {}
 
-.styleguide__colors {}
-.styleguide__color {}
+.styleguide__colors {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.styleguide__color {
+  width: 33%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .styleguide__color-text {}

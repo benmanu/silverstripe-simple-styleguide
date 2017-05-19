@@ -8,32 +8,7 @@ class SimpleStyleguideController extends Controller
      * @config
      * @var array
      */
-    private static $color_swatches = [
-        [
-            'Name' => 'Black',
-            'Description' => '$color-black',
-            'CSSColor' => '#000000',
-            'TextColor' => '#ffffff',
-        ],
-        [
-            'Name' => 'Black',
-            'Description' => '$color-black',
-            'CSSColor' => '#000000',
-            'TextColor' => '#666666',
-        ],
-        [
-            'Name' => 'Grey',
-            'Description' => '$color-grey',
-            'CSSColor' => '#666666',
-            'TextColor' => '#000000',
-        ],
-        [
-            'Name' => 'Grey',
-            'Description' => '$color-grey',
-            'CSSColor' => '#666666',
-            'TextColor' => '#ffffff',
-        ],
-    ];
+    private static $color_swatches = [];
 
     /**
      * @var array
@@ -174,8 +149,10 @@ class SimpleStyleguideController extends Controller
         $list = ArrayList::create();
         $colors = $this->config()->color_swatches;
 
-        foreach ($colors as $color) {
-            $list->push(ArrayData::create($color));
+        if ($colors) {
+            foreach ($colors as $color) {
+                $list->push(ArrayData::create($color));
+            }
         }
 
         return $list;
