@@ -1,5 +1,7 @@
 # Simple Styleguide Module
 
+[![Build Status](https://travis-ci.org/benmanu/silverstripe-simple-styleguide.svg?branch=master)](https://travis-ci.org/benmanu/silverstripe-simple-styleguide)
+
 ## Overview
 
 The module adds a new controller endpoint which can be viewed at the `/_styleguide` route, if logged in with 
