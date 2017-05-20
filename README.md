@@ -12,9 +12,9 @@ The `SimpleStyleguideController` class also includes a basic form (`SimpleStyleg
 
 Run on the command line:
 
-	$ composer require benmanu/silverstripe-simple-styleguide dev-master
+	$ composer require benmanu/silverstripe-simple-styleguide
 
-or include `"benmanu/silverstripe-simple-styleguide": "dev-master"` in your project `composer.json` and run:
+or include `"benmanu/silverstripe-simple-styleguide": "~1.0"` in your project `composer.json` and run:
 
 	$ composer update
 
