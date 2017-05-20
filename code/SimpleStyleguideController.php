@@ -45,7 +45,7 @@ class SimpleStyleguideController extends Controller
 
     /**
      * Provides access to any custom function on the controller for use on the template output.
-     * @return Array
+     * @return ArrayData
      */
     public function getStyleguideData()
     {
