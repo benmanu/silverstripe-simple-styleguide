@@ -1,4 +1,4 @@
-<h2 id="typography">Typography</h2>
+<h2 id="typography" class="styleguide__title">Typography</h2>
 
 <h3>Paragraph</h3>
 
@@ -16,7 +16,7 @@
 <p><em>ĀĒĪŌŪāēīōū. He aha ngā mahi a te rongoā.</em></p>
 <p><small>ĀĒĪŌŪāēīōū. He aha ngā mahi a te rongoā.</small></p>
 
-<h2 id="links">Links</h2>
+<h2 id="links" class="styleguide__title">Links</h2>
 
 <h3>Standard links</h3>
 
@@ -36,7 +36,7 @@
 
 $Content.RichLinks
 
-<h2 id="headings">Headings</h2>
+<h2 id="headings" class="styleguide__title">Headings</h2>
 
 <h1>h1. Heading 1</h1>
 <h2>h2. Heading 2</h2>
@@ -64,7 +64,7 @@ $Content.RichLinks
 <h6>Heading 6 <a href="#">link</a></h6>
 <p>Duis lectus dolor, euismod eu adipiscing sit amet, fringilla ut augue. Pellentesque tristique condimentum iaculis. Aliquam erat volutpat. Donec nec sapien urna. Vivamus nec felis dui, ut porta mauris. In mollis porttitor ipsum, vitae elementum erat lacinia imperdiet. Sed ut sem ut erat convallis pretium. Vestibulum nec orci nec urna ullamcorper tincidunt. Integer at massa sit amet orci cursus varius. Curabitur eu ipsum massa, at condimentum justo.</p>
 
-<h2 id="lists">Lists</h2>
+<h2 id="lists" class="styleguide__title">Lists</h2>
 
 <h3>Unordered list (Short)</h3>
 
@@ -158,13 +158,13 @@ $Content.RichLinks
   </ol>
 </ol>
 
-<h2 id="blockquote">Blockquote</h2>
+<h2 id="blockquote" class="styleguide__title">Blockquote</h2>
 
 <blockquote>
   <p>Sed facilisis diam mauris, a vulputate ligula. Sed nec purus mauris. Nulla euismod massa ac nisl gravida dictum. Fusce leo turpis, accumsan non ultricies sed, consectetur id dui.</p>
 </blockquote>
 
-<h2 id="images">Images</h2>
+<h2 id="images" class="styleguide__title">Images</h2>
 
 <div class="typography">
   <p>Images can be added through the WYSIWYG fields in the CMS using the `Insert Media` action. The layout of
@@ -269,7 +269,7 @@ $Content.RichLinks
     Suspendisse porttitor odio in ipsum dignissim mollis.</p>
 </div>
 
-<h2 id="tables">Tables</h2>
+<h2 id="tables" class="styleguide__title">Tables</h2>
 
 <table>
   <thead>

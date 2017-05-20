@@ -1,5 +1,5 @@
 <% if $ColorSwatches %>
-  <h2 id="colors">Colors</h2>
+  <h2 id="colors" class="styleguide__title">Colors</h2>
   <div class="styleguide__colors">
     <% loop $ColorSwatches %>
       <div class="styleguide__color" style="background: $CSSColor; color: $TextColor;">

@@ -1,5 +1,5 @@
 <div class="styleguide">
-	<div class="styleguide__title">
+	<div>
 		<h1>$Title</h1>
     $Message
 	</div>

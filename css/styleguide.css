@@ -5,6 +5,11 @@
 .styleguide__navigation-item {}
 
 .styleguide__content {}
+.styleguide__title {
+  padding-bottom: 0.5rem;
+  padding-top: 1rem;
+  border-bottom: 1px #eeeeee solid;
+}
 
 .styleguide__colors {
   display: flex;
