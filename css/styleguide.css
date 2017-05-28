@@ -24,3 +24,9 @@
   align-items: center;
 }
 .styleguide__color-text {}
+
+.styleguide__heading-styles {
+  margin-left: 1rem;
+  font-weight: normal;
+  font-size: 1rem;
+}

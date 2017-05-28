@@ -37,6 +37,7 @@ class SimpleStyleguideController extends Controller
 
         // requirements
         Requirements::css('simple-styleguide/css/styleguide.css');
+        Requirements::javascript('simple-styleguide/js/styleguide.js');
 
         return $controller
             ->customise($this->getStyleGuideData())

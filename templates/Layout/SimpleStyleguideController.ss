@@ -10,6 +10,7 @@
 
     <% include SimpleStyleguideColorSwatches %>
     <% include SimpleStyleguideTypography %>
+    <% include SimpleStyleguideHeadings %>
     <% include SimpleStyleguideForm %>
 
 	</div>
