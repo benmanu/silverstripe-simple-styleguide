@@ -38,7 +38,7 @@ An extension hook is available to override/edit the rendered template data throu
 A simple color swatch template is available and can be overriden through the `color_swatches` config value.
 
 ```yml
-SimpleStyleguideController:
+SimpleStyleguide\SimpleStyleguideController:
   color_swatches:
     - Name: "Black"
       Description: "This color is rather dark"

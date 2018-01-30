@@ -15,11 +15,11 @@
 		"issues": "https://github.com/benmanu/silverstripe-simple-styleguide/issues"
 	},
 	"require": {
-		"silverstripe/framework": "~3.2",
-		"silverstripe/cms": "~3.2"
+		"silverstripe/framework": "^4.0",
+		"silverstripe/cms": "^4.0"
 	},
 	"require-dev": {
-		"phpunit/PHPUnit": "~3.7@stable",
+		"phpunit/PHPUnit": "^5.7",
 		"squizlabs/php_codesniffer": "^2.8"
 	},
 	"extra": {

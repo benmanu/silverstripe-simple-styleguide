@@ -1,4 +1,29 @@
 <?php
+
+namespace SimpleStyleguide;
+
+use SilverStripe\Control\Controller;
+use SilverStripe\Control\Director;
+use SilverStripe\Security\Permission;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\CMS\Controllers\ModelAsController;
+use SilverStripe\View\Requirements;
+use SilverStripe\View\ArrayData;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\EmailField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Form;
+use SilverStripe\Assets\File;
+
 /**
  * @package simple-styleguide
  */
@@ -17,6 +42,8 @@ class SimpleStyleguideController extends Controller
         'index',
     ];
 
+    private static $url_segment = '_styleguide';
+
     /**
      * Runs the permissiion checks, and setup of the controller view.
      */
@@ -31,7 +58,7 @@ class SimpleStyleguideController extends Controller
             Config::inst()->update('SSViewer', 'theme', Subsite::currentSubsite()->Theme);
         }
 
-        $page = Page::get()->first();
+        $page = SiteTree::get()->first();
         $controller = ModelAsController::controller_for($page);
         $controller->init();
 
@@ -75,12 +102,9 @@ class SimpleStyleguideController extends Controller
     {
         $fields = FieldList::create(
             TextField::create('SimpleText', 'Simple Text Field'),
-            TextField::create('SimpleTextGood', 'Simple Text Field (good)')
-                ->setError('This is a good message', 'good'),
-            TextField::create('SimpleTextWarning', 'Simple Text Field (warning)')
-                ->setError('This is a warning message', 'warning'),
-            TextField::create('SimpleTextBad', 'Simple Text Field (bad)')
-                ->setError('This is an error message', 'bad'),
+            TextField::create('SimpleTextGood', 'Simple Text Field (good)'),
+            TextField::create('SimpleTextWarning', 'Simple Text Field (warning)'),
+            TextField::create('SimpleTextBad', 'Simple Text Field (bad)'),
             NumericField::create('Number', 'Number Field'),
             EmailField::create('Email', "Email Field"),
             DropdownField::create('Dropdown', 'Normal dropdown', [
