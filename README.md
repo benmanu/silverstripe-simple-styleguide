@@ -51,3 +51,12 @@ SimpleStyleguide\SimpleStyleguideController:
       CSSColor: "#666666"
       TextColor: "#000000"
 ```
+
+### Placeholder Images
+
+The placeholder image url can be overriden through the `placeholder_image_url` config.
+
+```yml
+SimpleStyleguide\SimpleStyleguideController:
+  placeholder_image_url: "/simple-styleguide/images/placeholder.png"
+```

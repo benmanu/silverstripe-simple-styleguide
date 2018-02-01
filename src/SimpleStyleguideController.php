@@ -36,6 +36,12 @@ class SimpleStyleguideController extends Controller
     private static $color_swatches = [];
 
     /**
+     * @config
+     * @var string
+     */
+    private static $placeholder_image_url = '/simple-styleguide/images/placeholder.png';
+
+    /**
      * @var array
      */
     private static $allowed_actions = [
@@ -86,6 +92,7 @@ class SimpleStyleguideController extends Controller
             'TestForm' => $this->getTestForm(),
             'Content' => $this->getContent(),
             'ColorSwatches' => $this->getColorSwatches(),
+            'PlaceholderImageURL' => $this->getPlaceholderImageURL(),
         ]);
 
         // extensions for adding/overriding template data.
@@ -143,6 +150,8 @@ class SimpleStyleguideController extends Controller
         $form = new Form($this, 'TestForm', $fields, $actions, $required);
         $form->setMessage('This is a form wide message. See the alerts component for site wide messages.', 'warning');
 
+        $this->extend('updateForm', $form);
+
         return $form;
     }
 
@@ -163,6 +172,8 @@ class SimpleStyleguideController extends Controller
         // add external link to html content
         $content .= '<p>This is an external <a href="http://google.com">link to google</a> inside content.</p>';
 
+        $this->extend('updateContent', $content);
+
         return DBField::create_field('HTMLText', $content);
     }
 
@@ -180,6 +191,20 @@ class SimpleStyleguideController extends Controller
             }
         }
 
+        $this->extend('updateColorSwatches', $list);
+
         return $list;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPlaceholderImageURL()
+    {
+        $url = $this->config()->placeholder_image_url;
+
+        $this->extend('updatePlaceholderImageURL', $url);
+
+        return $url;
     }
 }
