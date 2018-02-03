@@ -1,16 +1,14 @@
 language: php
 
-dist: trusty
-
 env:
   global:
-    - COMPOSER_ROOT_VERSION=2.0.x-dev
+    - COMPOSER_ROOT_VERSION="4.0.x-dev"
 
 matrix:
   include:
-    - php: 7.0
+    - php: 7.1
       env:
-       - DB=MYSQL
+       - DB=MYSQL CORE_RELEASE=4
 
 before_script:
   # Init PHP
@@ -23,4 +21,4 @@ before_script:
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
 script:
-  - vendor/bin/phpunit simple-styleguide/tests/
+  - vendor/bin/phpunit

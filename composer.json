@@ -23,6 +23,12 @@
 	"extra": {
 		"installer-name": "simple-styleguide"
     },
+    "autoload": {
+        "psr-4": {
+            "BenManu\\SimpleStyleguide\\": "src/",
+            "BenManu\\SimpleStyleguide\\Tests\\": "tests/"
+        }
+    },
     "prefer-stable": true,
     "minimum-stability": "dev"
 }

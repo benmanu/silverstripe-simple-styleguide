@@ -40,7 +40,7 @@ An extension hook is available to override/edit the rendered template data throu
 A simple color swatch template is available and can be overriden through the `color_swatches` config value.
 
 ```yml
-SimpleStyleguide\SimpleStyleguideController:
+BenManu\SimpleStyleguide\SimpleStyleguideController:
   color_swatches:
     - Name: "Black"
       Description: "This color is rather dark"
@@ -57,6 +57,6 @@ SimpleStyleguide\SimpleStyleguideController:
 The placeholder image url can be overriden through the `placeholder_image_url` config.
 
 ```yml
-SimpleStyleguide\SimpleStyleguideController:
+BenManu\SimpleStyleguide\SimpleStyleguideController:
   placeholder_image_url: "/simple-styleguide/images/placeholder.png"
 ```

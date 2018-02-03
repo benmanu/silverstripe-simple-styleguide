@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleStyleguide;
+namespace BenManu\SimpleStyleguide;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;

@@ -1,6 +1,6 @@
 <?php
 
-namespace SimpleStyleguide;
+namespace BenManu\SimpleStyleguide;
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Dev\TestOnly;

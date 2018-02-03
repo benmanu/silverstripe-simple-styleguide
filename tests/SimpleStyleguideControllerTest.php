@@ -1,8 +1,8 @@
 <?php
 
-namespace SimpleStyleguide;
+namespace BenManu\SimpleStyleguide;
 
-use SimpleStyleguide\SimpleStyleguideController;
+use BenManu\SimpleStyleguide\SimpleStyleguideController;
 use SilverStripe\Dev\SapphireTest;
 use SilverStripe\Core\Config\Config;
 
