@@ -1,4 +1,11 @@
 <?php
+
+namespace SimpleStyleguide;
+
+use SimpleStyleguide\SimpleStyleguideController;
+use SilverStripe\Dev\SapphireTest;
+use SilverStripe\Core\Config\Config;
+
 /**
  * @package simple-styleguide
  * @subpackage tests
@@ -8,7 +15,9 @@ class SimpleStyleguideControllerTest extends SapphireTest
     protected static $fixture_file = 'SimpleStyleguideControllerTest.yml';
 
     protected $requiredExtensions = [
-        'SimpleStyleguideController' => ['SimpleStyleguideControllerTest_data'],
+        SimpleStyleguideController::class => [
+            SimpleStyleguideControllerTest_data::class
+        ],
     ];
 
     public function testGetStyleguideData()
@@ -16,20 +25,25 @@ class SimpleStyleguideControllerTest extends SapphireTest
         $controller = SimpleStyleguideController::create();
         $data = $controller->getStyleguideData();
 
-        $this->assertInstanceOf('ArrayData', $data);
+        $this->assertInstanceOf('SilverStripe\View\ArrayData', $data);
         $this->assertEquals('Styleguide', $data->Title);
         $this->assertEquals(
             '<p>This controller is only accessible to developers and admin users.</p>',
             $data->Message->getValue()
         );
-        $this->assertInstanceOf('Form', $data->TestForm);
-        $this->assertInstanceOf('HTMLText', $data->Content);
-        $this->assertInstanceOf('ArrayList', $data->ColorSwatches);
+        $this->assertInstanceOf('SilverStripe\Forms\Form', $data->TestForm);
+        $this->assertInstanceOf('SilverStripe\ORM\FieldType\DBHTMLText', $data->Content);
+        $this->assertInstanceOf('SilverStripe\ORM\ArrayList', $data->ColorSwatches);
     }
 
     public function testGetStyleguideDataExtension()
     {
+        SimpleStyleguideController::add_extension(
+            SimpleStyleguideControllerTest_data::class
+        );
+
         $controller = SimpleStyleguideController::create();
+
         $data = $controller->getStyleguideData();
         $this->assertTrue($data->hasField('CustomData'));
     }
@@ -39,7 +53,7 @@ class SimpleStyleguideControllerTest extends SapphireTest
         $controller = SimpleStyleguideController::create();
         $form = $controller->getTestForm();
 
-        $this->assertInstanceOf('Form', $form);
+        $this->assertInstanceOf('SilverStripe\Forms\Form', $form);
     }
 
     public function testGetContent()
@@ -47,7 +61,7 @@ class SimpleStyleguideControllerTest extends SapphireTest
         $controller = SimpleStyleguideController::create();
         $content = $controller->getContent();
 
-        $this->assertInstanceOf('HTMLText', $content);
+        $this->assertInstanceOf('SilverStripe\ORM\FieldType\DBHTMLText', $content);
         $this->assertNotNull($content->getValue());
     }
 
@@ -69,19 +83,12 @@ class SimpleStyleguideControllerTest extends SapphireTest
             ],
         ];
 
-        Config::inst()->remove('SimpleStyleguideController', 'color_swatches');
-        Config::inst()->update('SimpleStyleguideController', 'color_swatches', $swatchesFixture);
+        SimpleStyleguideController::config()->remove('color_swatches');
+        SimpleStyleguideController::config()->update('color_swatches', $swatchesFixture);
 
         $swatches = $controller->getColorSwatches();
 
-        $this->assertInstanceOf('ArrayList', $swatches);
+        $this->assertInstanceOf('SilverStripe\ORM\ArrayList', $swatches);
         $this->assertEquals(count($swatchesFixture), $swatches->count());
-    }
-}
-
-class SimpleStyleguideControllerTest_data extends DataExtension implements TestOnly {
-    public function updateStyleguideData($data)
-    {
-        $data->setField('CustomData', 'Test');
     }
 }

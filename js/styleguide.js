@@ -15,7 +15,7 @@ if (wrap) {
 
     if (heading) {
       const headingStyles = getComputedStyle(heading);
-      const label = `(${headingStyles.fontWeight}, ${headingStyles.fontSize}, ${rgb2hex(headingStyles.color)})`;
+      const label = `(${headingStyles.fontWeight}, ${headingStyles.fontSize}, ${rgb2hex(headingStyles.color)}, ${headingStyles.fontFamily})`;
 
       const span = document.createElement('SPAN');
       span.className += 'styleguide__heading-styles';
