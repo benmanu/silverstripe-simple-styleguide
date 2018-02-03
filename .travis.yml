@@ -22,7 +22,7 @@ before_script:
 
 script:
   - vendor/bin/phpunit tests/
-  - vendor/bin/phpunit --coverage-clover=coverage.xml
+  - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
