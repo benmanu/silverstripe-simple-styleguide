@@ -23,4 +23,4 @@ before_script:
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit simple-styleguide/tests/
