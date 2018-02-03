@@ -15,7 +15,7 @@
 		"issues": "https://github.com/benmanu/silverstripe-simple-styleguide/issues"
 	},
 	"require": {
-		"silverstripe/cms": "^4"
+		"silverstripe/cms": "^4.0"
 	},
 	"require-dev": {
 		"phpunit/PHPUnit": "^5.7"
