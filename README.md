@@ -3,6 +3,8 @@
 The Simple Styleguide enables site maintainers a single page to source the general site styles out of the box (typography, links, colours, form fields etc). Extensible through theme templates to build out a component library specific to the website.
 
 [![Build Status](https://travis-ci.org/benmanu/silverstripe-simple-styleguide.svg?branch=master)](https://travis-ci.org/benmanu/silverstripe-simple-styleguide)
+[![codecov](https://codecov.io/gh/benmanu/silverstripe-simple-styleguide/branch/master/graph/badge.svg)](https://codecov.io/gh/benmanu/silverstripe-simple-styleguide)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/benmanu/silverstripe-simple-styleguide/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/benmanu/silverstripe-simple-styleguide/?branch=master)
 
 ## Overview
 
