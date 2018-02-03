@@ -20,7 +20,7 @@ Run on the command line:
 
 	$ composer require benmanu/silverstripe-simple-styleguide
 
-or include `"benmanu/silverstripe-simple-styleguide": "2.0.1"` in your project `composer.json` and run:
+or include `"benmanu/silverstripe-simple-styleguide": "2.0.3"` in your project `composer.json` and run:
 
 	$ composer update
 
