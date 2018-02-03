@@ -22,5 +22,7 @@
 	},
 	"extra": {
 		"installer-name": "simple-styleguide"
-	}
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
 }
