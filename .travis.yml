@@ -2,14 +2,9 @@ language: php
 
 dist: trusty
 
-cache:
-  directories:
-    - $HOME/.composer/cache/files
-
 env:
   global:
-    - COMPOSER_ROOT_VERSION=4.0.x-dev
-    - SS_ENVIRONMENT_TYPE="dev"
+    - COMPOSER_ROOT_VERSION=2.0.x-dev
 
 matrix:
   include:
@@ -18,18 +13,14 @@ matrix:
        - DB=MYSQL
 
 before_script:
-# Init PHP
-  - pecl channel-update pecl.php.net
+  # Init PHP
   - phpenv rehash
-  - phpenv config-rm xdebug.ini || true
-  - echo 'memory_limit = 2048M' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - phpenv config-rm xdebug.ini
 
-# Install composer dependencies
-  - export PATH=~/.composer/vendor/bin:$PATH
+  # Install composer dependencies
   - composer validate
-  - composer require silverstripe/recipe-cms:1.0.x-dev --no-update
-  # - composer require silverstripe/recipe-core:1.0.x-dev silverstripe/admin:1.0.x-dev silverstripe/versioned:1.0.x-dev silverstripe/recipe-cms:1.0.x-dev --no-update
+  - composer require silverstripe/recipe-cms 1.0.x-dev  --no-update
   - composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader --verbose --profile
 
 script:
-  - vendor/bin/phpunit simple-styleguide/tests/
+  - vendor/bin/phpunit tests/
