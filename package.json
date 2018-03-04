@@ -1,0 +1,24 @@
+{
+  "name": "silverstripe-simple-styleguide",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "repository": "git@github.com:benmanu/silverstripe-simple-styleguide.git",
+  "author": "Ben Manu",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "@theintern/a11y": "^0.2.0",
+    "intern": "^4.1.5",
+    "laravel-mix": "^2.0.0"
+  },
+  "dependencies": {
+    "accessibilityjs": "^1.1.0",
+    "axe-core": "^2.6.1",
+    "vue": "^2.5.13"
+  }
+}

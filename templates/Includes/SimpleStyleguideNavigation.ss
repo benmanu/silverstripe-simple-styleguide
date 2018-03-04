@@ -8,5 +8,6 @@
     <li class="styleguide__navigation-item"><a href="#lists">Lists</a></li>
     <li class="styleguide__navigation-item"><a href="#blockquote">Blockquote</a></li>
     <li class="styleguide__navigation-item"><a href="#form">Form</a></li>
+    <li class="styleguide__navigation-item"><a href="#accessibility">Accessibility Report</a></li>
   </ul>
 </div>

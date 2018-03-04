@@ -1,8 +1,8 @@
-<div class="styleguide">
+<div class="styleguide" id="app">
 	<div>
 		<h1>$Title</h1>
     $Message
-	</div>
+  </div>
 
 	<% include SimpleStyleguideNavigation %>
 
@@ -12,6 +12,7 @@
     <% include SimpleStyleguideTypography %>
     <% include SimpleStyleguideHeadings %>
     <% include SimpleStyleguideForm %>
+    <% include SimpleStyleguideAccessibility %>
 
 	</div>
 </div>
