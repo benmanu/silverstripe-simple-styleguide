@@ -21,7 +21,12 @@
 		"phpunit/PHPUnit": "^5.7"
 	},
 	"extra": {
-		"installer-name": "simple-styleguide"
+		"installer-name": "simple-styleguide",
+        "expose": [
+            "css",
+            "js",
+            "images"
+        ]
     },
     "autoload": {
         "psr-4": {
