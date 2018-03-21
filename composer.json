@@ -1,7 +1,7 @@
 {
 	"name": "benmanu/silverstripe-simple-styleguide",
 	"description": "Provides a kitchen sink template useful for theme development.",
-	"type": "silverstripe-module",
+	"type": "silverstripe-vendormodule",
 	"homepage": "https://github.com/benmanu/silverstripe-simple-styleguide",
 	"keywords": ["silverstripe", "styleguide"],
 	"license": "BSD-3-Clause",
