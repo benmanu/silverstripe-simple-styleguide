@@ -39,7 +39,7 @@ class SimpleStyleguideController extends Controller
      * @config
      * @var string
      */
-    private static $placeholder_image_url = '/simple-styleguide/images/placeholder.png';
+    private static $placeholder_image_url = '/resources/benmanu/silverstripe-simple-styleguide/images/placeholder.png';
 
     /**
      * @var array
@@ -69,8 +69,8 @@ class SimpleStyleguideController extends Controller
         $controller->init();
 
         // requirements
-        Requirements::css('simple-styleguide/css/styleguide.css');
-        Requirements::javascript('simple-styleguide/js/styleguide.js');
+        Requirements::css('benmanu/silverstripe-simple-styleguide: css/styleguide.css');
+        Requirements::javascript('benmanu/silverstripe-simple-styleguide: js/styleguide.js');
 
         return $controller
             ->customise($this->getStyleGuideData())
