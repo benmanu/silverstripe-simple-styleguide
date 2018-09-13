@@ -39,7 +39,7 @@ class SimpleStyleguideController extends Controller
      * @config
      * @var string
      */
-    private static $placeholder_image_url = '/resources/benmanu/silverstripe-simple-styleguide/images/placeholder.png';
+    private static $placeholder_image_url = '/resources/vendor/benmanu/silverstripe-simple-styleguide/images/placeholder.png';
 
     /**
      * @var array
