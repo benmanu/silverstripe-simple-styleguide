@@ -23,6 +23,9 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Form;
 use SilverStripe\Assets\File;
+use SilverStripe\Subsites\Model\Subsite;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\View\SSViewer;
 
 /**
  * @package simple-styleguide
@@ -60,8 +63,8 @@ class SimpleStyleguideController extends Controller
         }
 
         // If the subsite module is installed then set the theme based on the current subsite
-        if (class_exists('Subsite') && Subsite::currentSubsite()) {
-            Config::inst()->update('SSViewer', 'theme', Subsite::currentSubsite()->Theme);
+        if (class_exists(Subsite::class) && Subsite::currentSubsite()) {
+            Config::modify()->set(SSViewer::class, 'themes', [Subsite::currentSubsite()->Theme, '$default']);
         }
 
         $page = SiteTree::get()->first();
