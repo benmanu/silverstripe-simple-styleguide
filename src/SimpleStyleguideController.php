@@ -4,6 +4,7 @@ namespace BenManu\SimpleStyleguide;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\CMS\Controllers\ModelAsController;
@@ -39,7 +40,7 @@ class SimpleStyleguideController extends Controller
      * @config
      * @var string
      */
-    private static $placeholder_image_url = '/resources/vendor/benmanu/silverstripe-simple-styleguide/images/placeholder.png';
+    private static $placeholder_image_url = 'benmanu/silverstripe-simple-styleguide: images/placeholder.png';
 
     /**
      * @var array
@@ -202,6 +203,7 @@ class SimpleStyleguideController extends Controller
     public function getPlaceholderImageURL()
     {
         $url = $this->config()->placeholder_image_url;
+        $url = ModuleResourceLoader::singleton()->resolveURL($url);
 
         $this->extend('updatePlaceholderImageURL', $url);
 
