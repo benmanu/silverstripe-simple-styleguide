@@ -23,6 +23,7 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Form;
 use SilverStripe\Assets\File;
+use SilverStripe\Security\Security;
 
 /**
  * @package simple-styleguide
@@ -42,6 +43,12 @@ class SimpleStyleguideController extends Controller
     private static $placeholder_image_url = '/resources/vendor/benmanu/silverstripe-simple-styleguide/images/placeholder.png';
 
     /**
+     * @config
+     * @var string
+     */
+    private static $requires_dev = true;
+
+    /**
      * @var array
      */
     private static $allowed_actions = [
@@ -51,11 +58,15 @@ class SimpleStyleguideController extends Controller
     private static $url_segment = '_styleguide';
 
     /**
-     * Runs the permissiion checks, and setup of the controller view.
+     * Runs the permission checks, and setup of the controller view.
      */
     public function index()
     {
-        if (!Director::isDev() && !Permission::check('ADMIN')) {
+        if ($this->config()->requires_dev && true /*!Director::isDev()*/) {
+            return Security::permissionFailure();
+        }
+
+        if (!Permission::check('ADMIN')) {
             return Security::permissionFailure();
         }
 
