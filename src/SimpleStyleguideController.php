@@ -5,6 +5,7 @@ namespace BenManu\SimpleStyleguide;
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\CMS\Controllers\ModelAsController;
@@ -24,6 +25,7 @@ use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Form;
 use SilverStripe\Assets\File;
+use SilverStripe\Subsites\Model\Subsite;
 
 /**
  * @package simple-styleguide
@@ -61,11 +63,11 @@ class SimpleStyleguideController extends Controller
         }
 
         // If the subsite module is installed then set the theme based on the current subsite
-        if (class_exists('Subsite') && Subsite::currentSubsite()) {
+        if (class_exists(Subsite::class) && Subsite::currentSubsite()) {
             Config::inst()->update('SSViewer', 'theme', Subsite::currentSubsite()->Theme);
         }
 
-        $page = SiteTree::get()->first();
+        $page = Injector::inst()->create(SiteTree::class);
         $controller = ModelAsController::controller_for($page);
         $controller->init();
 
