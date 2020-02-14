@@ -4,6 +4,7 @@ namespace BenManu\SimpleStyleguide;
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
+use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Security\Permission;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\CMS\Controllers\ModelAsController;
@@ -64,7 +65,7 @@ class SimpleStyleguideController extends Controller
             Config::inst()->update('SSViewer', 'theme', Subsite::currentSubsite()->Theme);
         }
 
-        $page = SiteTree::get()->first();
+        $page = Injector::inst()->create(SiteTree::class);
         $controller = ModelAsController::controller_for($page);
         $controller->init();
 
