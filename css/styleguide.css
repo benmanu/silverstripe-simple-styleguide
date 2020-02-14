@@ -5,24 +5,47 @@
 .styleguide__navigation-item {}
 
 .styleguide__content {}
+
 .styleguide__title {
   padding-bottom: 0.5rem;
   padding-top: 1rem;
   border-bottom: 1px #eeeeee solid;
 }
 
-.styleguide__colors {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.styleguide__colors {}
+
+@supports (display: grid) {
+  .styleguide__colors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+  }
 }
+
 .styleguide__color {
-  width: 33%;
-  padding: 1rem;
+  box-sizing: border-box;
   display: flex;
+  font-size: 16px;
   flex-direction: column;
-  align-items: center;
+
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  min-height: 200px;
+  padding: 20px 23px;
+  width: auto;
 }
+
+@supports (display: grid) {
+  .styleguide__color {
+    margin-bottom: 0;
+  }
+}
+
 .styleguide__color-text {}
 
 .styleguide__heading-styles {
