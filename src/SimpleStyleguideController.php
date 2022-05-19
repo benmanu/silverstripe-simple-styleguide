@@ -7,6 +7,7 @@ use SilverStripe\Control\Director;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Core\Injector\Injector;
 use SilverStripe\Security\Permission;
+use SilverStripe\Security\Security;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\CMS\Controllers\ModelAsController;
 use SilverStripe\View\Requirements;
