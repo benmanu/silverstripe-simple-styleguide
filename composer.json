@@ -15,10 +15,10 @@
 		"issues": "https://github.com/benmanu/silverstripe-simple-styleguide/issues"
 	},
 	"require": {
-		"silverstripe/cms": "^4.0"
+		"silverstripe/cms": "^5.0"
 	},
 	"require-dev": {
-		"phpunit/PHPUnit": "^5.7"
+		"phpunit/phpunit": "^9.6"
 	},
 	"extra": {
 		"installer-name": "simple-styleguide",
