@@ -3,7 +3,10 @@
 	"description": "Provides a kitchen sink template useful for theme development.",
 	"type": "silverstripe-vendormodule",
 	"homepage": "https://github.com/benmanu/silverstripe-simple-styleguide",
-	"keywords": ["silverstripe", "styleguide"],
+	"keywords": [
+		"silverstripe",
+		"styleguide"
+	],
 	"license": "BSD-3-Clause",
 	"authors": [
 		{
@@ -15,25 +18,46 @@
 		"issues": "https://github.com/benmanu/silverstripe-simple-styleguide/issues"
 	},
 	"require": {
-		"silverstripe/cms": "^5.0"
+		"silverstripe/recipe-cms": "^6",
+		"silverstripe/subsites": "^4.0"
 	},
 	"require-dev": {
-		"phpunit/phpunit": "^9.6"
+		"phpunit/phpunit": "^11"
 	},
 	"extra": {
 		"installer-name": "simple-styleguide",
-        "expose": [
-            "css",
-            "js",
-            "images"
-        ]
-    },
-    "autoload": {
-        "psr-4": {
-            "BenManu\\SimpleStyleguide\\": "src/",
-            "BenManu\\SimpleStyleguide\\Tests\\": "tests/"
-        }
-    },
-    "prefer-stable": true,
-    "minimum-stability": "dev"
+		"expose": [
+			"css",
+			"js",
+			"images"
+		],
+		"project-files-installed": [
+			".htaccess",
+			"app/.htaccess",
+			"app/_config/mimevalidator.yml",
+			"app/_config/mysite.yml",
+			"app/src/Page.php",
+			"app/src/PageController.php"
+		],
+		"public-files-installed": [
+			".htaccess",
+			"index.php",
+			"web.config"
+		]
+	},
+	"autoload": {
+		"psr-4": {
+			"BenManu\\SimpleStyleguide\\": "src/",
+			"BenManu\\SimpleStyleguide\\Tests\\": "tests/"
+		}
+	},
+	"prefer-stable": true,
+	"minimum-stability": "dev",
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true,
+			"silverstripe/recipe-plugin": true,
+			"silverstripe/vendor-plugin": true
+		}
+	}
 }

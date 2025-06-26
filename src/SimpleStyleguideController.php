@@ -6,14 +6,14 @@ use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Model\List\ArrayList;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\CMS\Controllers\ModelAsController;
 use SilverStripe\View\Requirements;
-use SilverStripe\View\ArrayData;
+use SilverStripe\Model\ArrayData;
 use SilverStripe\ORM\FieldType\DBField;
-use SilverStripe\ORM\ArrayList;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\NumericField;
@@ -23,10 +23,12 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\Forms\OptionsetField;
 use SilverStripe\Forms\FormAction;
-use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Form;
 use SilverStripe\Assets\File;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Subsites\Model\Subsite;
+use SilverStripe\View\SSViewer;
 
 /**
  * @package simple-styleguide
@@ -65,7 +67,14 @@ class SimpleStyleguideController extends Controller
 
         // If the subsite module is installed then set the theme based on the current subsite
         if (class_exists(Subsite::class) && Subsite::currentSubsite()) {
-            Config::inst()->update('SSViewer', 'theme', Subsite::currentSubsite()->Theme);
+            Config::modify()->set(
+                SSViewer::class,
+                'theme',
+                [
+                    Subsite::currentSubsite()->Theme,
+                    '$default'
+                ]
+            );
         }
 
         $page = Injector::inst()->create(SiteTree::class);
@@ -83,11 +92,10 @@ class SimpleStyleguideController extends Controller
 
     /**
      * Provides access to any custom function on the controller for use on the template output.
-     * @return ArrayData
      */
-    public function getStyleguideData()
+    public function getStyleguideData(): ArrayData
     {
-        $data = new ArrayData([
+        $data = ArrayData::create([
             'Title' => 'Styleguide',
             'Message' => DBField::create_field(
                 'HTMLText',
@@ -107,9 +115,8 @@ class SimpleStyleguideController extends Controller
 
     /**
      * Return a form with fields to match rendering through controller/template output.
-     * @return Form
      */
-    public function getTestForm()
+    public function getTestForm(): Form
     {
         $fields = FieldList::create(
             TextField::create('SimpleText', 'Simple Text Field'),
@@ -144,14 +151,14 @@ class SimpleStyleguideController extends Controller
             FormAction::create('doForm', 'Submit')
         );
 
-        $required = new RequiredFields(
+        $required = RequiredFieldsValidator::create(
             'SimpleText',
             'Email',
             'Checkbox',
             'Dropdown'
         );
 
-        $form = new Form($this, 'TestForm', $fields, $actions, $required);
+        $form = Form::create($this, 'TestForm', $fields, $actions, $required);
         $form->setMessage('This is a form wide message. See the alerts component for site wide messages.', 'warning');
 
         $this->extend('updateForm', $form);
@@ -161,9 +168,8 @@ class SimpleStyleguideController extends Controller
 
     /**
      * Emulate an HTMLEditorField output useful for testing shortcodes and output extensions etc.
-     * @return HTMLText
      */
-    public function getContent()
+    public function getContent(): DBField
     {
         $content = '';
 
@@ -181,10 +187,7 @@ class SimpleStyleguideController extends Controller
         return DBField::create_field('HTMLText', $content);
     }
 
-    /**
-     * @return ArrayList
-     */
-    public function getColorSwatches()
+    public function getColorSwatches(): ArrayList
     {
         $list = ArrayList::create();
         $colors = $this->config()->color_swatches;
@@ -200,10 +203,7 @@ class SimpleStyleguideController extends Controller
         return $list;
     }
 
-    /**
-     * @return string
-     */
-    public function getPlaceholderImageURL()
+    public function getPlaceholderImageURL(): ?string
     {
         $url = $this->config()->placeholder_image_url;
         $url = ModuleResourceLoader::singleton()->resolveURL($url);

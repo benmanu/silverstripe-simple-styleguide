@@ -4,7 +4,6 @@ namespace BenManu\SimpleStyleguide;
 
 use BenManu\SimpleStyleguide\SimpleStyleguideController;
 use SilverStripe\Dev\SapphireTest;
-use SilverStripe\Core\Config\Config;
 
 /**
  * @package simple-styleguide
@@ -84,7 +83,7 @@ class SimpleStyleguideControllerTest extends SapphireTest
         ];
 
         SimpleStyleguideController::config()->remove('color_swatches');
-        SimpleStyleguideController::config()->update('color_swatches', $swatchesFixture);
+        SimpleStyleguideController::config()->color_swatches = $swatchesFixture;
 
         $swatches = $controller->getColorSwatches();
 
