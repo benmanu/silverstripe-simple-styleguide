@@ -28,6 +28,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\Subsites\Model\Subsite;
+use SilverStripe\View\SSViewer;
 
 /**
  * @package simple-styleguide
@@ -66,7 +67,14 @@ class SimpleStyleguideController extends Controller
 
         // If the subsite module is installed then set the theme based on the current subsite
         if (class_exists(Subsite::class) && Subsite::currentSubsite()) {
-            Config::modify()->set('SilverStripe\View\SSViewer', 'theme', Subsite::currentSubsite()->Theme);
+            Config::modify()->set(
+                SSViewer::class,
+                'theme',
+                [
+                    Subsite::currentSubsite()->Theme,
+                    '$default'
+                ]
+            );
         }
 
         $page = Injector::inst()->create(SiteTree::class);
